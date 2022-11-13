@@ -8,8 +8,8 @@ export default function Certifications({ data, label }): JSX.Element {
     <>
       <p className="headline-reduced">{label}</p>
       <div className={styles.container}>
-        {data.map((certification) => (
-          <Certification key={certification.id} {...certification} />
+        {data.map((certification, i) => (
+          <Certification key={i} {...certification} />
         ))}
       </div>
     </>
