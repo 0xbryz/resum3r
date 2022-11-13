@@ -1,0 +1,41 @@
+$aliceblue: #f4f8ff;
+$blue: #54a0ff;
+$darkgray: #576574;
+$imperialprimer: #222f3e;
+$lightgray: #c8d6e5;
+$lightpink: #ff9ff3;
+$lightred: #ff6b6b;
+$mediumgray: #8395a7;
+$mediumpink: #f368e0;
+$mediumred: #ee5253;
+$orange: #ff9f43;
+$purple: #5f27cd;
+$white: #ffffff;
+$yellow: #feca57;
+
+$color-classes: (
+  'aliceblue': $aliceblue,
+  'blue': $blue,
+  'darkgray': $darkgray,
+  'imperialprimer': $imperialprimer,
+  'lightgray': $lightgray,
+  'lightpink': $lightpink,
+  'lightred': $lightred,
+  'mediumgray': $mediumgray,
+  'mediumpink': $mediumpink,
+  'mediumred': $mediumred,
+  'orange': $orange,
+  'purple': $purple,
+  'white': $white,
+  'yellow': $yellow,
+);
+
+@mixin color($color) {
+  color: $color;
+}
+
+@each $name, $color in $color-classes {
+  .#{$name} {
+    @include color($color);
+  }
+}

@@ -1,0 +1,20 @@
+@import './colors.scss';
+@import './spacing.scss';
+@import './typography.scss';
+
+.pill {
+  border: 1px solid $lightgray;
+  border-radius: $spacing-sixteen;
+  display: flex;
+  align-items: center;
+  gap: $spacing-two;
+  padding: $spacing-one;
+  padding-right: $spacing-three;
+  width: fit-content;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-one;
+}

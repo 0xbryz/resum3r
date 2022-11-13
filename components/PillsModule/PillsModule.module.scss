@@ -1,0 +1,11 @@
+@import './colors.scss';
+@import './spacing.scss';
+@import './typography.scss';
+
+.communities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-one;
+  padding-top: $spacing-six;
+  justify-content: flex-start;
+}

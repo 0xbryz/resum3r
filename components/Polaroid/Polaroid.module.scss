@@ -1,0 +1,43 @@
+@import './colors.scss';
+@import './spacing.scss';
+@import './typography.scss';
+
+.polaroid {
+  background-color: $white;
+  border-radius: $spacing-four;
+  padding: $spacing-two;
+  flex: 1;
+  box-shadow: rgb(151 134 245 / 17%) 0px 6px 20px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-four;
+
+  .thumbnail {
+    background-size: cover;
+    border-radius: $spacing-four;
+    width: 100%;
+    height: 150px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-four;
+    padding: 0 $spacing-three;
+
+    .details {
+      display: flex;
+      gap: $spacing-four;
+      align-items: flex-start;
+      justify-content: space-between;
+      word-break: break-word;
+      width: 100%;
+    }
+
+    .date {
+      color: $mediumgray;
+      align-self: flex-end;
+    }
+  }
+}

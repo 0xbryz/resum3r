@@ -1,0 +1,142 @@
+@import './spacing.scss';
+@import './breakpoints.scss';
+
+@font-face {
+  font-family: 'gorditabold';
+  src: url('../fonts/gordita-bold-webfont.woff2') format('woff2'),
+    url('../fonts/gordita-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gorditabold_italic';
+  src: url('../fonts/gordita-bolditalic-webfont.woff2') format('woff2'),
+    url('../fonts/gordita-bolditalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gorditamedium';
+  src: url('../fonts/gordita-medium-webfont.woff2') format('woff2'),
+    url('../fonts/gordita-medium-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gorditamedium_italic';
+  src: url('../fonts/gordita-mediumitalic-webfont.woff2') format('woff2'),
+    url('../fonts/gordita-mediumitalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gorditaregular';
+  src: url('../fonts/gordita-regular-webfont.woff2') format('woff2'),
+    url('../fonts/gordita-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gorditaitalic';
+  src: url('../fonts/gordita-regularitalic-webfont.woff2') format('woff2'),
+    url('../fonts/gordita-regularitalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$typography-classes: (
+  standalone: (
+    font-size: 5rem,
+    line-height: 5.25rem,
+    font-family: 'gorditamedium',
+  ),
+  headline: (
+    font-size: 2rem,
+    line-height: 2.25rem,
+    font-family: 'gorditamedium',
+  ),
+  intro: (
+    font-size: 2rem,
+    line-height: 2.25rem,
+    font-family: 'gorditabold',
+  ),
+  quote: (
+    font-size: 1.5rem,
+    line-height: 1.75rem,
+    font-family: 'gorditaregular',
+  ),
+  headline-reduced: (
+    font-size: 1.25rem,
+    line-height: 1.5rem,
+    font-family: 'gorditamedium',
+  ),
+  label: (
+    font-size: 1rem,
+    line-height: 1.25rem,
+    font-family: 'gorditamedium',
+  ),
+  body: (
+    font-size: 1rem,
+    line-height: 1.25rem,
+    font-family: 'gorditaregular',
+  ),
+  body-bold: (
+    font-size: 1rem,
+    line-height: 1.25rem,
+    font-family: 'gorditabold',
+  ),
+  body-reduced: (
+    font-size: 0.875rem,
+    line-height: 1.125rem,
+    font-family: 'gorditaregular',
+  ),
+  caption: (
+    font-size: 0.75rem,
+    line-height: 1rem,
+    font-family: 'gorditaregular',
+  ),
+  caption-bold: (
+    font-size: 0.75rem,
+    line-height: 1rem,
+    font-family: 'gorditamedium',
+  ),
+);
+
+@each $class, $typography in $typography-classes {
+  .#{$class} {
+    font-size: map-get($typography, font-size);
+    line-height: map-get($typography, line-height);
+    font-family: map-get($typography, font-family);
+    margin-bottom: map-get($typography, margin-bottom);
+
+    @include sizes(sm) {
+      font-size: map-get($typography, font-size) * 1.5;
+      line-height: map-get($typography, line-height) * 1.5;
+    }
+  }
+}
+
+.ellipsis {
+  --ellipsis-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @supports (-webkit-line-clamp: 2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: initial;
+    display: -webkit-box;
+    -webkit-line-clamp: var(--ellipsis-line-clamp);
+    -webkit-box-orient: vertical;
+  }
+
+  @include sizes(sm) {
+    --ellipsis-line-clamp: 1;
+  }
+}

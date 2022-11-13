@@ -1,0 +1,36 @@
+@import './colors.scss';
+@import './spacing.scss';
+@import './typography.scss';
+@import './breakpoints.scss';
+
+@mixin tagColor($color) {
+  color: $color;
+  background: rgb($color, 15%);
+}
+
+@each $name, $color in $color-classes {
+  .#{$name} {
+    @include tagColor($color);
+  }
+}
+
+.tag {
+  border-radius: $spacing-one;
+  padding: $spacing-one $spacing-two;
+  @extend .caption-bold;
+}
+
+.rounded {
+  border-radius: $spacing-six;
+}
+
+.large {
+  font-size: $spacing-three-plus;
+  line-height: $spacing-four;
+  padding: $spacing-two $spacing-four;
+
+  @include sizes(sm) {
+    font-size: $spacing-five;
+    line-height: $spacing-six;
+  }
+}

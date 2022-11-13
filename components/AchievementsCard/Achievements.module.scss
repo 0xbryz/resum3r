@@ -1,0 +1,21 @@
+@import './colors.scss';
+@import './spacing.scss';
+@import './typography.scss';
+@import './breakpoints.scss';
+
+.achievements {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-six;
+  padding-top: $spacing-six;
+
+  .nftsection,
+  .poapsection {
+    display: flex;
+    gap: $spacing-six;
+
+    @include sizes(lg) {
+      flex-direction: column;
+    }
+  }
+}

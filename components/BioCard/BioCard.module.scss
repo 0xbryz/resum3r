@@ -1,0 +1,45 @@
+@import './typography.scss';
+@import './spacing.scss';
+@import './colors.scss';
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-six;
+
+  @include sizes(sm) {
+    gap: $spacing-twelve;
+  }
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-one;
+
+  .name {
+    padding-right: $spacing-sixteen;
+
+    @include sizes(sm) {
+      font-family: 'gorditamedium';
+    }
+  }
+
+  .flag {
+    position: absolute;
+    top: $spacing-six;
+    right: $spacing-six;
+  }
+}
+
+.available {
+}
+
+.description {
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: $spacing-two;
+}

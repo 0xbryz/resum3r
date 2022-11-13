@@ -1,0 +1,39 @@
+@import './typography.scss';
+@import './spacing.scss';
+@import './colors.scss';
+
+.experience {
+  padding-top: $spacing-six;
+  position: relative;
+
+  .tag {
+    position: absolute;
+    right: 0;
+    top: $spacing-six;
+  }
+
+  .job {
+    display: flex;
+    gap: $spacing-three;
+
+    .details {
+      padding-bottom: $spacing-six;
+      border-bottom: 1px solid $lightgray;
+      width: 100%;
+
+      .title {
+        margin-right: $spacing-sixteen;
+      }
+
+      .location {
+        display: flex;
+        justify-content: space-between;
+        margin: $spacing-two 0;
+      }
+
+      .date {
+        color: $mediumgray;
+      }
+    }
+  }
+}

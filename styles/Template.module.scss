@@ -1,0 +1,45 @@
+@import './spacing.scss';
+@import './breakpoints.scss';
+
+.template {
+  display: flex;
+  gap: $spacing-six;
+  padding: $spacing-sixteen;
+  justify-content: space-between;
+  max-width: 1900px;
+  margin: 0 auto;
+
+  @include sizes(sm) {
+    width: fit-content;
+    padding: $spacing-ten;
+    gap: $spacing-twelve;
+  }
+
+  @include sizes(lg) {
+    flex-direction: column;
+    width: 500px;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-six;
+
+  @include sizes(sm) {
+    gap: $spacing-twelve;
+  }
+
+  &--left,
+  &--right {
+    flex: 1;
+  }
+
+  &--center {
+    flex: 2;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

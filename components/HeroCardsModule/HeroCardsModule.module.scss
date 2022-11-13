@@ -1,0 +1,22 @@
+@import './colors.scss';
+@import './spacing.scss';
+@import './typography.scss';
+@import './breakpoints.scss';
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-six;
+  padding-top: $spacing-six;
+  justify-content: space-between;
+}
+
+.projects > div {
+  flex-basis: calc(50% - $spacing-four);
+  flex-grow: inherit;
+
+  @include sizes(sm) {
+    flex-basis: calc(100% - $spacing-four);
+    margin: 0 auto;
+  }
+}

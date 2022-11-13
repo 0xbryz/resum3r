@@ -1,0 +1,21 @@
+@import './typography.scss';
+@import './spacing.scss';
+@import './colors.scss';
+
+.card {
+  background-color: $white;
+  padding: $spacing-six;
+  border-radius: $spacing-four;
+  position: relative;
+}
+
+.title {
+  margin-bottom: $spacing-six;
+}
+
+.divider {
+  border-bottom: 1px solid $lightgray;
+  position: absolute;
+  left: 0;
+  width: 100%;
+}

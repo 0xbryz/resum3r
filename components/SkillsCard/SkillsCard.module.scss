@@ -1,0 +1,9 @@
+@import './spacing.scss';
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-one;
+  padding-top: $spacing-six;
+  position: relative;
+}

@@ -1,0 +1,32 @@
+@import './normalize.scss';
+@import './typography.scss';
+@import './spacing.scss';
+@import './colors.scss';
+@import './breakpoints.scss';
+
+// * {
+//   -webkit-font-smoothing: antialiased;
+// }
+
+:root {
+  --blue: gold;
+}
+
+p,
+h1,
+h2 {
+  margin: 0;
+}
+
+body {
+  background-color: $aliceblue;
+  font-family: 'gorditaregular';
+  font-size: $spacing-four;
+  line-height: $spacing-six;
+  color: $imperialprimer;
+
+  @include sizes(sm) {
+    font-size: $spacing-six;
+    line-height: $spacing-eight;
+  }
+}

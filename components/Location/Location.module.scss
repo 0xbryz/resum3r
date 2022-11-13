@@ -1,0 +1,21 @@
+@import './typography.scss';
+@import './spacing.scss';
+@import './colors.scss';
+
+.location {
+  display: flex;
+  justify-content: flex-start;
+  gap: $spacing-one;
+
+  .details {
+    display: flex;
+    justify-content: space-between;
+    gap: $spacing-two;
+    width: 100%;
+  }
+
+  .pin,
+  .flag {
+    font-size: $spacing-six;
+  }
+}
