@@ -4,9 +4,11 @@ import Button from '../Button/Button';
 import classnames from 'classnames';
 import styles from './BioCard.module.scss';
 
-export default function BioCard({ data }): JSX.Element {
+export type BioCardProps = React.HTMLAttributes<HTMLDivElement>;
+
+export default function BioCard({ data, className }): JSX.Element {
   return (
-    <BaseCard>
+    <BaseCard className={className}>
       {data.map((info, i) => {
         return (
           <div key={i} className={styles.bio}>

@@ -1,0 +1,31 @@
+@import './colors.scss';
+@import './spacing.scss';
+@import './typography.scss';
+@import './breakpoints.scss';
+
+.radioButton {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  gap: $spacing-four;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-three;
+  align-items: self-start;
+  position: relative;
+  right: -$spacing-one;
+}
+
+.labelContainer {
+  display: flex;
+  gap: $spacing-three;
+  align-items: center;
+  justify-content: center;
+}
+
+.input[type='radio'] {
+  transform: scale(2);
+}

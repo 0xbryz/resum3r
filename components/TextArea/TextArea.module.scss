@@ -1,0 +1,30 @@
+@import './colors.scss';
+@import './spacing.scss';
+@import './typography.scss';
+@import './breakpoints.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  gap: $spacing-four;
+
+  textarea {
+    color: $darkgray;
+    -webkit-font-smoothing: antialiased;
+    padding: $spacing-four;
+    border-radius: 5px;
+    border-color: rgba($navyblue, 0.3);
+    resize: none;
+
+    &::placeholder {
+      color: rgba($navyblue, 0.3);
+      opacity: 1; /* Firefox */
+    }
+
+    &:focus {
+      outline: none;
+      border: 2px solid $imperialprimer;
+    }
+  }
+}

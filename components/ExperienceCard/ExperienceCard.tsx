@@ -9,9 +9,10 @@ type ExperienceCardProps = React.HTMLAttributes<HTMLElement> & {
 
 export default function ExperienceCard({
   data,
+  className,
 }: ExperienceCardProps): JSX.Element {
   return (
-    <BaseCard label="Experience" divider>
+    <BaseCard className={className} label="Experience" divider>
       {data.map((el, i) => (
         <PositionTile key={i} {...el} />
       ))}
