@@ -2,20 +2,20 @@ import { useRef } from 'react';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { useFormData } from '../../context/index';
-import styles from './Forms.module.scss';
+import styles from './Questionnaire.module.scss';
 import classnames from 'classnames';
-import TextField from '../TextField/TextField';
+import TextField from '../Form/TextField/TextField';
 import Button from '../Button/Button';
 import BioCard from '../BioCard/BioCard';
 import { bio } from '../../pages/data';
-import RadioButton from '../RadioButton/RadioButton';
-import TextArea from '../TextArea/TextArea';
-import Checkbox from '../Checkbox/Checkbox';
-import DatePicker from '../DatePicker/DatePicker';
-import Select from '../Select/Select';
-import { PERSONAL_INFO_INPUT_DATA } from './PersonalInfo.data';
+import RadioButton from '../Form/RadioButton/RadioButton';
+import TextArea from '../Form/TextArea/TextArea';
+import Checkbox from '../Form/Checkbox/Checkbox';
+import DatePicker from '../Form/DatePicker/DatePicker';
+import Select from '../Form/Select/Select';
+import { PERSONAL_DETAILS_INPUT_DATA } from './PersonalDetails.data';
 
-export default function PersonalInfo({ formStep, nextFormStep }) {
+export default function PersonalDetails({ formStep, nextFormStep }) {
   const { setFormValues } = useFormData();
   const formRef = useRef<FormHandles>(null);
 
@@ -42,7 +42,7 @@ export default function PersonalInfo({ formStep, nextFormStep }) {
             <RadioButton
               label="Preferred pronouns"
               name="pronouns"
-              options={PERSONAL_INFO_INPUT_DATA.pronouns}
+              options={PERSONAL_DETAILS_INPUT_DATA.pronouns}
             />
             <TextArea name="description" />
             <Checkbox
@@ -62,7 +62,7 @@ export default function PersonalInfo({ formStep, nextFormStep }) {
             <Select
               label="Employment type"
               name="employmentTypes"
-              options={PERSONAL_INFO_INPUT_DATA.employmentTypes}
+              options={PERSONAL_DETAILS_INPUT_DATA.employmentTypes}
             />
           </div>
           <Button>Next: Experience</Button>

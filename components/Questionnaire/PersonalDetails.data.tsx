@@ -1,4 +1,4 @@
-export const PERSONAL_INFO_INPUT_DATA = {
+export const PERSONAL_DETAILS_INPUT_DATA = {
   pronouns: [
     { id: 'She/Her', label: 'She/Her' },
     { id: 'He/Him', label: 'He/Him' },

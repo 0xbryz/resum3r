@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import styles from './CreateResume.module.scss';
+import styles from './Questionnaire.module.scss';
 import classnames from 'classnames';
-import { Experience, PersonalInfo } from '../../components/Forms';
+import { Experience, PersonalDetails } from '../../components/Questionnaire';
 import BioCard from '../../components/BioCard/BioCard';
 import { bio, experience } from '../data';
 
@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       {formStep >= 0 && (
-        <PersonalInfo formStep={formStep} nextFormStep={nextFormStep} />
+        <PersonalDetails formStep={formStep} nextFormStep={nextFormStep} />
       )}
       {formStep >= 1 && (
         <Experience formStep={formStep} nextFormStep={nextFormStep} />

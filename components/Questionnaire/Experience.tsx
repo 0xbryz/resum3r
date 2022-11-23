@@ -1,15 +1,15 @@
 import { useRef } from 'react';
 import { Form } from '@unform/web';
 import { useFormData } from '../../context/index';
-import styles from './Forms.module.scss';
+import styles from './Questionnaire.module.scss';
 import classnames from 'classnames';
-import TextField from '../TextField/TextField';
+import TextField from '../Form/TextField/TextField';
 import Button from '../Button/Button';
 import BioCard from '../BioCard/BioCard';
 import { experience } from '../../pages/data';
 import ExperienceCard from '../ExperienceCard/ExperienceCard';
 
-export default function PersonalInfo({ formStep, nextFormStep }) {
+export default function PersonalDetails({ formStep, nextFormStep }) {
   const { setFormValues } = useFormData();
   const formRef = useRef(null);
 

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useField } from '@unform/core';
 import classnames from 'classnames';
 import styles from './DatePicker.module.scss';
-import Info from '../Icons/Info/Info';
+import Info from '../../Icons/Info/Info';
 
 export type DatePickerProps = React.HTMLAttributes<HTMLInputElement> & {
   label: string;
