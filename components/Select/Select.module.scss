@@ -1,0 +1,11 @@
+@import './colors.scss';
+@import './spacing.scss';
+@import './typography.scss';
+@import './breakpoints.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  gap: $spacing-four;
+}

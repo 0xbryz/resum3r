@@ -1,0 +1,27 @@
+export const PERSONAL_INFO_INPUT_DATA = {
+  pronouns: [
+    { id: 'She/Her', label: 'She/Her' },
+    { id: 'He/Him', label: 'He/Him' },
+    { id: 'They/Them', label: 'They/Them' },
+  ],
+  employmentTypes: [
+    { label: 'Full Time', value: 'full-time' },
+    { label: 'Part Time', value: 'part-time' },
+    { label: 'Self Employed', value: 'self-employed' },
+    { label: 'Freelance', value: 'freelance' },
+    { label: 'Contract', value: 'contract' },
+    { label: 'Internship', value: 'internship' },
+    { label: 'Apprenticeship', value: 'apprenticeship' },
+    { label: 'Seasonal', value: 'seasonal' },
+    // { value: 'blue', label: 'Blue', color: '#54a0ff', isDisabled: true },
+    // { value: 'purple', label: 'Purple', color: '#0445af' },
+    // { value: 'yellow', label: 'Yellow', color: '#ff9ff3' },
+    // { value: 'green', label: 'Green', color: '#ff6b6b' },
+    // { value: 'forest', label: 'Forest', color: '#f368e0' },
+    // { value: 'slate', label: 'Slate', color: '#ee5253' },
+    // { value: 'xyz', label: 'Silver', color: '#ff9f43' },
+    // { value: 'love', label: 'Silver', color: '#5f27cd' },
+    // { value: 'ayeaye', label: 'Silver', color: '#feca57' },
+    // { value: 'cato', label: 'Silver', color: '#0be881' },
+  ],
+};

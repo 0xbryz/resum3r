@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { useFormData } from '../../context/index';
 import styles from './Forms.module.scss';
@@ -9,10 +10,14 @@ import BioCard from '../BioCard/BioCard';
 import { bio } from '../../pages/data';
 import RadioButton from '../RadioButton/RadioButton';
 import TextArea from '../TextArea/TextArea';
+import Checkbox from '../Checkbox/Checkbox';
+import DatePicker from '../DatePicker/DatePicker';
+import Select from '../Select/Select';
+import { PERSONAL_INFO_INPUT_DATA } from './PersonalInfo.data';
 
 export default function PersonalInfo({ formStep, nextFormStep }) {
   const { setFormValues } = useFormData();
-  const formRef = useRef(null);
+  const formRef = useRef<FormHandles>(null);
 
   async function handleSubmit(data) {
     console.log('✨ ', data);
@@ -37,15 +42,27 @@ export default function PersonalInfo({ formStep, nextFormStep }) {
             <RadioButton
               label="Preferred pronouns"
               name="pronouns"
+              options={PERSONAL_INFO_INPUT_DATA.pronouns}
+            />
+            <TextArea name="description" />
+            <Checkbox
+              className="circle"
+              name="availableForHire"
               options={[
-                { id: 'She/Her', label: 'She/Her' },
-                { id: 'He/Him', label: 'He/Him' },
-                { id: 'They/Them', label: 'They/Them' },
+                {
+                  id: 'lookingForOpportunitites',
+                  value: 'Yes',
+                  label: 'I am currently looking for new opportunities',
+                  image:
+                    'https://img.freepik.com/free-vector/gradient-grainy-gradient-texture_79603-1642.jpg?w=2000',
+                },
               ]}
             />
-            <TextArea
-              name="description"
-              placeholder="Type your description here..."
+            <DatePicker name="StartDate" label="Start Date" />
+            <Select
+              label="Employment type"
+              name="employmentTypes"
+              options={PERSONAL_INFO_INPUT_DATA.employmentTypes}
             />
           </div>
           <Button>Next: Experience</Button>

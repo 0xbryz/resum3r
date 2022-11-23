@@ -33,6 +33,7 @@ export default function TextArea({
         defaultValue={defaultValue}
         {...rest}
         className="quote"
+        placeholder="Type your description here..."
       />
     </div>
   );

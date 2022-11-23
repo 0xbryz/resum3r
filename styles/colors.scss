@@ -13,6 +13,7 @@ $orange: #ff9f43;
 $purple: #5f27cd;
 $white: #ffffff;
 $yellow: #feca57;
+$green: #0be881;
 
 $color-classes: (
   'aliceblue': $aliceblue,
@@ -29,6 +30,7 @@ $color-classes: (
   'purple': $purple,
   'white': $white,
   'yellow': $yellow,
+  'green': $green,
 );
 
 @mixin color($color) {
