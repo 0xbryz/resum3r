@@ -11,7 +11,7 @@
   box-shadow: rgb(151 134 245 / 17%) 0px 6px 20px 4px;
   gap: $spacing-two;
   align-items: center;
-  max-height: 80px;
+  min-height: 80px;
 
   @include sizes(sm) {
     max-height: fit-content;

@@ -56,7 +56,7 @@ export default function PersonalDetails() {
         </Form>
       </div>
       <Preview>
-        <BioCard data={bioData} />
+        <BioCard data={bioData} style={{ maxWidth: '388px' }} />
       </Preview>
     </div>
   );

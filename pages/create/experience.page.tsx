@@ -43,7 +43,7 @@ export default function PersonalDetails() {
         </Form>
       </div>
       <Preview>
-        <ExperienceCard data={experience} />
+        <ExperienceCard data={experience} style={{ minWidth: '388px' }} />
       </Preview>
     </div>
   );

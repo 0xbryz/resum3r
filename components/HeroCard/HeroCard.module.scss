@@ -4,8 +4,7 @@
 @import './breakpoints.scss';
 
 .herocard {
-  padding: $spacing-none;
-  max-height: initial;
+  padding: $spacing-none !important;
   height: 100%;
 }
 

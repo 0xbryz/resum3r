@@ -50,7 +50,7 @@ export default function Achievements() {
         </Form>
       </div>
       <Preview>
-        <AchievementsCard data={achievements} />
+        <AchievementsCard data={achievements} style={{ maxWidth: '700px' }} />
       </Preview>
     </div>
   );

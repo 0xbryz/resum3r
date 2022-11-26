@@ -51,7 +51,7 @@ type QuestionnaireInputDataProps = {
   };
 };
 
-export const QUESTIONNAIRE_PAGES = [
+export const QUESTIONNAIRE_PATHS = [
   '/create/personal',
   '/create/experience',
   '/create/skills',
@@ -61,6 +61,17 @@ export const QUESTIONNAIRE_PAGES = [
   '/create/communities',
   '/create/conferences',
 ];
+
+export const QUESTIONNAIRE_PAGE_NAMES = {
+  '/create/personal': 'Personal Details',
+  '/create/experience': 'Experience',
+  '/create/skills': 'Skills',
+  '/create/achievements': 'Achievements',
+  '/create/credentials': 'Credentials & Certifications',
+  '/create/projects': 'Projects',
+  '/create/communities': 'Communities & DAOs',
+  '/create/conferences': 'Conferences & Events',
+};
 
 export const QUESTIONNAIRE_INPUT_DATA: QuestionnaireInputDataProps = {
   personalDetails: [

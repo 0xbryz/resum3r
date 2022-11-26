@@ -6,23 +6,17 @@ type BaseCardProps = React.HTMLAttributes<HTMLElement> & {
   children: React.ReactNode;
   label?: string;
   divider?: boolean;
-  size?: 'small' | 'large';
 };
 
 export default function BaseCard({
   divider = false,
-  size = 'small',
   label,
   children,
   className,
+  ...props
 }: BaseCardProps): JSX.Element {
   return (
-    <div
-      className={classnames(styles.card, className, {
-        [styles.small]: size === 'small',
-        [styles.large]: size === 'large',
-      })}
-    >
+    <div className={classnames(styles.card, className)} {...props}>
       {label && (
         <p className={classnames(styles.title, ['headline-reduced'])}>
           {label}

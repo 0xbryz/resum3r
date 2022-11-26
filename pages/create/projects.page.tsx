@@ -46,7 +46,11 @@ export default function Projects() {
         </Form>
       </div>
       <Preview>
-        <HeroCardsModule label="Projects" data={projects} />
+        <HeroCardsModule
+          label="Projects"
+          data={projects}
+          style={{ maxWidth: '388px' }}
+        />
       </Preview>
     </div>
   );
