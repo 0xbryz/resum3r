@@ -1,0 +1,28 @@
+@import './colors.scss';
+@import './spacing.scss';
+@import './typography.scss';
+@import './breakpoints.scss';
+
+.selectImages {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-six;
+}
+
+.checkboxContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-two;
+  padding: $spacing-six;
+  border-radius: $spacing-six;
+  box-shadow: rgba($navyblue, 0.1) -1px -1px 10px 2px inset;
+  height: 16rem;
+  overflow: scroll;
+
+  > div {
+    flex-direction: row !important;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+}

@@ -13,7 +13,11 @@ type EllipsisCSSProperties = React.CSSProperties & {
   '--ellipsis-line-clamp'?: string | number;
 };
 
-export default function HeroCard({ image, tagText, title }): JSX.Element {
+export default function HeroCard({
+  image,
+  tagText,
+  title,
+}: HeroCardProps): JSX.Element {
   const linesClamp: EllipsisCSSProperties = {
     '--ellipsis-line-clamp': 4,
   };

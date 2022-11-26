@@ -6,4 +6,6 @@
   display: flex;
   flex-direction: column;
   gap: $spacing-six;
+  min-width: 700px;
+  width: 100%;
 }

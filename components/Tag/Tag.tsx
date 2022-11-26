@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import styles from './Tag.module.scss';
 
-type TagProps = React.HTMLAttributes<HTMLElement> & {
+export type TagProps = React.HTMLAttributes<HTMLElement> & {
   text: string;
   color?: string;
   large?: boolean;

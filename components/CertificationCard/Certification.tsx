@@ -10,7 +10,7 @@ export default function Certification({
   title,
   date,
   totalOwners,
-}) {
+}): JSX.Element {
   return (
     <BaseRowCard>
       <Avatar src={image} size="large" />

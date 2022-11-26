@@ -6,22 +6,24 @@ import styles from './BioCard.module.scss';
 
 export type BioCardProps = React.HTMLAttributes<HTMLDivElement>;
 
-export default function BioCard({ data, className }): JSX.Element {
+export default function BioCard({ data }): JSX.Element {
   return (
-    <BaseCard className={className}>
+    <BaseCard>
       {data.map((info, i) => {
         return (
           <div key={i} className={styles.bio}>
             <div className={styles.details}>
               <h1 className={classnames(styles.name, ['intro'])}>
-                {info.name}
+                {info.firstName} {info.lastName}
               </h1>
               <h2 className="quote mediumgray">{info.title}</h2>
               <span className="body blue">{info.pronouns}</span>
-              <span className={classnames(styles.flag, ['headline'])}>🇧🇷</span>
+              <span className={classnames(styles.flag, ['headline'])}>
+                {info.nationality}
+              </span>
             </div>
             <div className={styles.available}>
-              <p>Available</p>
+              <p>{info.availableForHire}</p>
             </div>
             <div className={styles.description}>
               <p className="darkgray">{info.description}</p>

@@ -2,3 +2,10 @@
 @import './spacing.scss';
 @import './colors.scss';
 @import './breakpoints.scss';
+
+.box {
+  border: 1px solid red;
+  width: 50%;
+  display: flex;
+  justify-self: flex-end;
+}

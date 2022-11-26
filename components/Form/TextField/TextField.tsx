@@ -14,6 +14,7 @@ export default function TextField({
   placeholder = 'Type your answer here...',
   className,
   name,
+  ...rest
 }: TextFieldProps): JSX.Element {
   const inputRef = useRef();
   const { fieldName, defaultValue, registerField, error } = useField(name);
@@ -39,6 +40,7 @@ export default function TextField({
         name={name}
         placeholder={placeholder}
         className="quote"
+        {...rest}
       />
       {error && <span className="error">{error}</span>}
     </div>

@@ -30,8 +30,6 @@ export default function Checkbox({
   const { fieldName, defaultValue = [], registerField } = useField(name);
   const size = sizes[className];
 
-  console.log(fieldName);
-
   useEffect(() => {
     registerField({
       name: fieldName,

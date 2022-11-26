@@ -7,6 +7,15 @@
   padding: $spacing-six;
   border-radius: $spacing-four;
   position: relative;
+  width: 100%; //
+}
+
+.small {
+  max-width: 388px;
+}
+
+.large {
+  max-width: 700px;
 }
 
 .title {

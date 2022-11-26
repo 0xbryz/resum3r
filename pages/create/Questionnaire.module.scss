@@ -3,16 +3,11 @@
 @import './colors.scss';
 @import './breakpoints.scss';
 
-.showForm {
+.form {
   display: flex;
 }
 
-.hideForm {
-  display: none;
-}
-
-.left,
-.right {
+.left {
   flex: 1;
   height: 100%;
   padding: $spacing-sixteen;
@@ -20,6 +15,7 @@
 
 .left {
   background-color: $white;
+  min-height: calc(100vh - $spacing-thirty-two);
 
   .form {
     display: flex;
@@ -37,16 +33,5 @@
     gap: $spacing-fourteen;
     margin-top: $spacing-thirty-two;
     margin-right: $spacing-thirty-two;
-  }
-}
-
-.right {
-  display: flex;
-  justify-content: center;
-
-  .component {
-    margin: 0 auto;
-    max-width: 388px;
-    position: fixed;
   }
 }

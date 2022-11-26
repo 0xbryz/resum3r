@@ -12,6 +12,7 @@ import {
   achievements,
   communities,
   conferences,
+  skills,
 } from './data';
 import SkillsCard from '../components/SkillsCard/SkillsCard';
 import Achievements from '../components/AchievementsCard/Achievements';
@@ -28,7 +29,7 @@ export default function Home() {
           <Location location="Naberezhnye Tchelny, Russia" />
         </BaseCard>
         <ExperienceCard data={experience} />
-        <SkillsCard />
+        <SkillsCard data={skills} />
       </div>
       <div className={classnames(styles.column, styles['column--center'])}>
         <Achievements data={achievements} />

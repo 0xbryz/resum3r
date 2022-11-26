@@ -1,4 +1,4 @@
-import { useState, createContext, useContext } from 'react';
+import { useState, createContext, useContext, useMemo } from 'react';
 
 export const FormContext = createContext(null);
 
@@ -12,11 +12,15 @@ export default function FormProvider({ children }) {
     }));
   };
 
-  return (
-    <FormContext.Provider value={{ data, setFormValues }}>
-      {children}
-    </FormContext.Provider>
+  const value = useMemo(
+    () => ({
+      data,
+      setFormValues,
+    }),
+    [data]
   );
+
+  return <FormContext.Provider value={value}>{children}</FormContext.Provider>;
 }
 
 export const useFormData = () => useContext(FormContext);
