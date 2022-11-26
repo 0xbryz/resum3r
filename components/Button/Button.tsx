@@ -9,8 +9,11 @@ export type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
 export default function Button({
   children,
   className,
+  ...rest
 }: ButtonProps): JSX.Element {
   return (
-    <button className={classnames(styles.button, className)}>{children}</button>
+    <button {...rest} className={classnames(styles.button, className)}>
+      {children}
+    </button>
   );
 }

@@ -1,10 +1,11 @@
 export const bio = [
   {
     address: '0x2687...f8d8',
-    name: 'Narayane Ribeiro Medeiros',
-    pronouns: '(She/Her)',
+    firstName: 'Narayane',
+    lastName: 'Ribeiro Medeiros',
+    pronouns: 'She/Her',
     title: 'Software Engineer',
-    country: 'Brazil',
+    nationality: 'Brazil',
     availableForHire: true,
     description:
       'I make UI/UX designs for web and mobile apps. I am also skilled in HTML banners (motion), gifs, graphic visuals for websites and google ads. I have experience in social media and digital art.',
@@ -150,5 +151,31 @@ export const conferences = [
     image:
       'https://img.freepik.com/free-vector/gradient-grainy-gradient-texture_79603-1642.jpg?w=2000',
     count: '1,369',
+  },
+];
+
+export const skills = [
+  {
+    text: 'Product Design',
+    large: true,
+    rounded: true,
+  },
+  {
+    text: 'Figma',
+    color: 'purple',
+    large: true,
+    rounded: true,
+  },
+  {
+    text: 'Design Thinking',
+    color: 'yellow',
+    large: true,
+    rounded: true,
+  },
+  {
+    text: 'Content Strategy',
+    color: 'lightpink',
+    large: true,
+    rounded: true,
   },
 ];

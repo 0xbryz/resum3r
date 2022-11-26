@@ -1,0 +1,37 @@
+@import './typography.scss';
+@import './spacing.scss';
+@import './colors.scss';
+@import './breakpoints.scss';
+
+.form {
+  display: flex;
+}
+
+.left {
+  flex: 1;
+  height: 100%;
+  padding: $spacing-sixteen;
+}
+
+.left {
+  background-color: $white;
+  min-height: calc(100vh - $spacing-thirty-two);
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-twenty-seven;
+
+    button {
+      align-self: flex-end;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-fourteen;
+    margin-top: $spacing-thirty-two;
+    margin-right: $spacing-thirty-two;
+  }
+}

@@ -7,7 +7,7 @@ import POAPCard from '../POAPCard/POAPCard';
 
 export default function Achievements({ data }): JSX.Element {
   return (
-    <BaseCard label="Achievements" divider>
+    <BaseCard label="Achievements" divider size="large">
       <div className={styles.achievements}>
         <div className={styles.nftsection}>
           {data.nfts.map((achievement, i) => (

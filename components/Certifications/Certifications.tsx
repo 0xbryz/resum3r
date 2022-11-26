@@ -3,11 +3,25 @@ import classnames from 'classnames';
 import styles from './Certifications.module.scss';
 import Certification from '../CertificationCard/Certification';
 
-export default function Certifications({ data, label }): JSX.Element {
+type CertificationsProps = React.HTMLAttributes<HTMLElement> & {
+  data: {
+    title: string;
+    date: string;
+    image: string;
+    totalOwners: number;
+    connections: string[];
+  }[];
+  label?: string;
+};
+
+export default function Certifications({
+  data,
+  label,
+}: CertificationsProps): JSX.Element {
   return (
     <>
-      <p className="headline-reduced">{label}</p>
-      <div className={styles.container}>
+      {label && <p className="headline-reduced">{label}</p>}
+      <div className={classnames(styles.container)}>
         {data.map((certification, i) => (
           <Certification key={i} {...certification} />
         ))}
