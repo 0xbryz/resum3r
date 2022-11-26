@@ -1,0 +1,34 @@
+@import './colors.scss';
+@import './spacing.scss';
+@import './typography.scss';
+@import './breakpoints.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  gap: $spacing-four;
+
+  input {
+    color: $darkgray;
+    padding: $spacing-four;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    outline: 1px solid rgba($navyblue, 0.3);
+    -webkit-font-smoothing: antialiased;
+    animation: 1ms ease 0s 1 normal none running native-autofill-in;
+    transition: background-color 1e8s ease 0s, box-shadow 0.1s ease-out 0s;
+    max-width: 15rem;
+
+    &:focus {
+      outline: none;
+      border: 2px solid $imperialprimer;
+    }
+  }
+
+  .information {
+    display: flex;
+    align-items: center;
+    gap: $spacing-one;
+  }
+}

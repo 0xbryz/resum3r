@@ -1,0 +1,46 @@
+@import './colors.scss';
+@import './spacing.scss';
+@import './typography.scss';
+@import './breakpoints.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  gap: $spacing-four;
+
+  input {
+    display: block;
+    width: 100%;
+    font-family: inherit;
+    color: $darkgray;
+    padding: 0px 0px 8px;
+    border: none;
+    outline: none;
+    border-radius: 0px;
+    appearance: none;
+    background-image: none;
+    background-position: initial;
+    background-size: initial;
+    background-repeat: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    transform: translateZ(0px);
+    -webkit-font-smoothing: antialiased;
+    line-height: unset;
+    animation: 1ms ease 0s 1 normal none running native-autofill-in;
+    transition: background-color 1e8s ease 0s, box-shadow 0.1s ease-out 0s;
+    box-shadow: rgba($navyblue, 0.3) 0px 1px;
+    background-color: transparent !important;
+
+    &::placeholder {
+      color: rgba($navyblue, 0.3);
+      opacity: 1; /* Firefox */
+    }
+
+    &:focus {
+      box-shadow: $imperialprimer 0px 2px;
+    }
+  }
+}
