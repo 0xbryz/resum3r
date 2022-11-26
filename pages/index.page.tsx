@@ -18,8 +18,25 @@ import Achievements from '../components/AchievementsCard/Achievements';
 import Certifications from '../components/Certifications/Certifications';
 import HeroCardsModule from '../components/HeroCardsModule/HeroCardsModule';
 import PillsModule from '../components/PillsModule/PillsModule';
+import { useEffect } from 'react';
+import swr from "swr";
+
+const fetchHello = (userId) =>
+  swr(
+    userId,
+    () => fetch(`/api/poaps/0xcf82fdd676ffebf4f5ebe344b06f76110be6942b/`).then((res) => res.json()),
+    { revalidateOnFocus: true }
+  );
+
 
 export default function Home() {
+
+  const { data, error } = fetchHello('hello');
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
   return (
     <main className={styles.template}>
       <div className={classnames(styles.column, styles['column--left'])}>
