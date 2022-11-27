@@ -6,7 +6,6 @@ import Button from '../../components/Button/Button';
 import { conferences } from '../../pages/data';
 import PillsModule from '../../components/PillsModule/PillsModule';
 import { QUESTIONNAIRE_INPUT_DATA } from './Questionnaire.data';
-import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import Preview from '../../components/Preview/Preview';
 
 export default function Conferences() {
@@ -44,7 +43,11 @@ export default function Conferences() {
         </Form>
       </div>
       <Preview>
-        <PillsModule data={conferences} label="Conferences & Events" />
+        <PillsModule
+          data={conferences}
+          label="Conferences & Events"
+          style={{ maxWidth: '388px' }}
+        />
       </Preview>
     </div>
   );

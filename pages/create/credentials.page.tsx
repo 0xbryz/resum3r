@@ -50,7 +50,7 @@ export default function Credentials() {
         </Form>
       </div>
       <Preview>
-        <Certifications data={certifications} />
+        <Certifications data={certifications} style={{ minWidth: '700px' }} />
       </Preview>
     </div>
   );

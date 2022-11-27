@@ -17,11 +17,12 @@ type CertificationsProps = React.HTMLAttributes<HTMLElement> & {
 export default function Certifications({
   data,
   label,
+  ...props
 }: CertificationsProps): JSX.Element {
   return (
     <>
       {label && <p className="headline-reduced">{label}</p>}
-      <div className={classnames(styles.container)}>
+      <div {...props} className={classnames(styles.container)}>
         {data.map((certification, i) => (
           <Certification key={i} {...certification} />
         ))}

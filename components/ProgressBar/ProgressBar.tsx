@@ -1,27 +1,41 @@
 import React, { useState } from 'react';
 import styles from './ProgressBar.module.scss';
+import Tooltip from './Tooltip';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import classnames from 'classnames';
 
 type ProgressBarProps = React.HTMLAttributes<HTMLElement> & {
-  links: string[];
+  paths: string[];
+  labels: labels;
 };
 
-export default function ProgressBar({ links }: ProgressBarProps): JSX.Element {
+type labels = {
+  [key: string]: string;
+};
+
+const getLabel = (labels: labels, path: string) => {
+  return labels[path];
+};
+
+export default function ProgressBar({
+  paths,
+  labels,
+}: ProgressBarProps): JSX.Element {
   const router = useRouter();
   const pathName = router.asPath;
   return (
     <div className={styles.progressbar}>
-      {links.map((link) => {
+      {paths.map((path) => {
         return (
-          <Link
-            key={link}
-            href={link}
-            className={classnames(styles.span, {
-              [styles.active]: pathName === link,
-            })}
-          ></Link>
+          <Tooltip key={path} label={getLabel(labels, path)}>
+            <Link
+              href={path}
+              className={classnames(styles.bar, {
+                [styles.active]: pathName === path,
+              })}
+            ></Link>
+          </Tooltip>
         );
       })}
     </div>

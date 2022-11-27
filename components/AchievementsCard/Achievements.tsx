@@ -5,9 +5,9 @@ import BaseCard from '../BaseCard/BaseCard';
 import Polaroid from '../Polaroid/Polaroid';
 import POAPCard from '../POAPCard/POAPCard';
 
-export default function Achievements({ data }): JSX.Element {
+export default function Achievements({ data, ...props }): JSX.Element {
   return (
-    <BaseCard label="Achievements" divider size="large">
+    <BaseCard label="Achievements" divider {...props}>
       <div className={styles.achievements}>
         <div className={styles.nftsection}>
           {data.nfts.map((achievement, i) => (

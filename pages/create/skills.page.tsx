@@ -43,7 +43,7 @@ export default function Skills() {
         </Form>
       </div>
       <Preview>
-        <SkillsCard data={skills} />
+        <SkillsCard data={skills} style={{ maxWidth: '388px' }} />
       </Preview>
     </div>
   );

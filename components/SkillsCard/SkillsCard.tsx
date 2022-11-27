@@ -9,9 +9,12 @@ type SkillsCardProps = React.HTMLAttributes<HTMLElement> & {
   data: TagProps[];
 };
 
-export default function SkillsCard({ data }: SkillsCardProps): JSX.Element {
+export default function SkillsCard({
+  data,
+  ...props
+}: SkillsCardProps): JSX.Element {
   return (
-    <BaseCard label="Skills" divider>
+    <BaseCard label="Skills" divider {...props}>
       <div className={styles.skills}>
         {data.map((el, i) => (
           <Tag key={i} {...el} />

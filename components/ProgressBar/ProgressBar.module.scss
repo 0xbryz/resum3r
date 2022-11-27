@@ -5,16 +5,41 @@
 
 .progressbar {
   display: flex;
-  gap: 10px;
+  gap: $spacing-three-plus;
 
-  .span {
-    width: 60px;
-    height: 5px;
-    background-color: $lightgray;
+  .bar {
+    width: 70px;
+    height: 8px;
+    background-color: rgba($navyblue, 0.13);
     border-radius: $spacing-four;
+    position: relative;
+    display: flex;
+    justify-content: center;
   }
 
   .active {
     background-color: $blue;
   }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+
+  &:hover .tooltip {
+    visibility: visible;
+  }
+}
+
+.tooltip {
+  visibility: hidden;
+  width: max-content;
+  background-color: rgba($purple, 0.1);
+  color: $purple;
+  text-align: center;
+  border-radius: $spacing-twenty;
+  padding: $spacing-one $spacing-three;
+  position: absolute;
+  z-index: 1;
+  top: -$spacing-ten;
 }

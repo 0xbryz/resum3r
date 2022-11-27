@@ -6,9 +6,9 @@ import styles from './BioCard.module.scss';
 
 export type BioCardProps = React.HTMLAttributes<HTMLDivElement>;
 
-export default function BioCard({ data }): JSX.Element {
+export default function BioCard({ data, ...props }): JSX.Element {
   return (
-    <BaseCard>
+    <BaseCard {...props}>
       {data.map((info, i) => {
         return (
           <div key={i} className={styles.bio}>

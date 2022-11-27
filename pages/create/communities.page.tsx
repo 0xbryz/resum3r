@@ -50,7 +50,11 @@ export default function Communities() {
         </Form>
       </div>
       <Preview>
-        <PillsModule data={communities} label="Communities & DAOs" />
+        <PillsModule
+          data={communities}
+          label="Communities & DAOs"
+          style={{ maxWidth: '388px' }}
+        />
       </Preview>
     </div>
   );
