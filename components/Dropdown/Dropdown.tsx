@@ -6,18 +6,25 @@ import styles from './Dropdown.module.scss';
 type DropdownItemProps = React.HtmlHTMLAttributes<HTMLDivElement> & {
   children: React.ReactNode;
   handleOnClick?: () => void;
+  hover?: boolean;
+  clickable?: boolean;
 };
 
 export function DropdownItem({
   children,
   className,
   handleOnClick,
+  hover = true,
+  clickable = true,
 }: DropdownItemProps): JSX.Element {
   return (
     <span>
       <div
         onClick={handleOnClick}
-        className={classnames(styles.dropdownItem, className)}
+        className={classnames(styles.dropdownItem, className, {
+          [styles.hover]: hover,
+          [styles.clickable]: clickable,
+        })}
       >
         {children}
       </div>
@@ -60,10 +67,7 @@ export function Dropdown({ trigger, menu, ...props }) {
             {menu.map((menuItem, index) => (
               <li key={index} className={styles.menuItem}>
                 {cloneElement(menuItem, {
-                  onClick: (e) => {
-                    e.preventDefault();
-                    setOpen(false);
-                  },
+                  onClick: () => setOpen(false),
                 })}
               </li>
             ))}

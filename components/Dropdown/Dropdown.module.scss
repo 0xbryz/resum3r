@@ -16,7 +16,6 @@
   align-items: center;
   padding: $spacing-four;
   gap: $spacing-two;
-  cursor: pointer;
 }
 
 .trigger {
@@ -38,7 +37,6 @@
 .menu {
   list-style-type: none;
   margin: 0;
-  padding: 0;
   min-width: 300px;
   width: 100%;
   background-color: $white;
@@ -46,6 +44,9 @@
   border-radius: $spacing-four;
   box-shadow: 0px 0px 2px rgba($navyblue, 0.1),
     0px 4px 7px rgba($navyblue, 0.05), 0px 12px 40px rgba($navyblue, 0.05);
+  position: absolute;
+  top: $spacing-sixteen;
+  z-index: 2;
 }
 
 .menu > li {
@@ -53,7 +54,7 @@
   border-radius: $spacing-two;
 }
 
-.menu > li:hover {
+.menu > li .hover:hover {
   background-color: rgba($navyblue, 0.05);
   border-radius: $spacing-two;
 }
@@ -62,4 +63,8 @@
   border-color: $imperialprimer;
   transform: translate3d(0px, 2px, 0px);
   will-change: transform;
+}
+
+.clickable {
+  cursor: pointer;
 }

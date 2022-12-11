@@ -9,7 +9,15 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
   },
   images: {
-    domains: ['pbs.twimg.com', 'img.freepik.com'],
+    domains: [
+      'pbs.twimg.com',
+      'img.freepik.com',
+      'ipfs.infura.io',
+      'statics-polygon-lens-staging.s3.eu-west-1.amazonaws.com',
+      'lens.infura-ipfs.io',
+      'source.unsplash.com',
+      '',
+    ],
     remotePatterns: [
       {
         protocol: 'ipfs',

@@ -2,6 +2,7 @@ import React from 'react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import Image from 'next/image';
 import styles from './Button.module.scss';
+import classnames from 'classnames';
 
 export default function Button() {
   return (
@@ -33,7 +34,11 @@ export default function Button() {
                   <button
                     onClick={openConnectModal}
                     type="button"
-                    className={styles.button}
+                    className={classnames(
+                      styles.button,
+                      styles.primary,
+                      styles.rounded
+                    )}
                   >
                     Connect Wallet
                   </button>
