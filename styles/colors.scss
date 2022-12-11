@@ -14,6 +14,8 @@ $purple: #5f27cd;
 $white: #ffffff;
 $yellow: #feca57;
 $green: #0be881;
+$greenlens: #abfe2c;
+$darkgreenlens: #00501e;
 
 $color-classes: (
   'aliceblue': $aliceblue,
@@ -31,6 +33,8 @@ $color-classes: (
   'white': $white,
   'yellow': $yellow,
   'green': $green,
+  'greenlens': $greenlens,
+  'darkgreenlens': $darkgreenlens,
 );
 
 @mixin color($color) {

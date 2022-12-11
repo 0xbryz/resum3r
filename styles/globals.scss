@@ -46,3 +46,18 @@ body {
     line-height: $spacing-eight;
   }
 }
+
+a {
+  text-decoration: none;
+  font-family: 'gorditamedium';
+  color: $darkgray;
+
+  &:visited {
+    color: $mediumgray;
+  }
+
+  &:active,
+  &:hover {
+    color: $imperialprimer;
+  }
+}

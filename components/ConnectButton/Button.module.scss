@@ -1,0 +1,9 @@
+@import './typography.scss';
+@import './spacing.scss';
+@import './colors.scss';
+@import './breakpoints.scss';
+@import '../Button/Button.module.scss';
+
+.button {
+  @extend .button;
+}
