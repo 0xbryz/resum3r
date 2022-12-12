@@ -1,6 +1,6 @@
 import { useState, createContext, useContext, useMemo, useEffect, useCallback } from 'react';
-import { NFTPageType } from '../components/NFTTemplate/NFTTemplate';
-import { formatNFTs, formatPoaps } from './useNFTs';
+import { NFTPageType } from '../../components/NFTTemplate/NFTTemplate';
+import { formatNFTs, formatPoaps } from '../useNFTs';
 
 export const FormContext = createContext(null);
 

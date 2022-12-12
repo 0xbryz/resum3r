@@ -12,7 +12,7 @@ type AvatarProps = React.HTMLAttributes<HTMLElement> & {
 
 const sizes = {
   tiny: 20,
-  small: 32,
+  small: 38,
   medium: 52,
   large: 80,
 };
@@ -22,6 +22,7 @@ export default function Avatar({
   border = false,
   outline = false,
   size = 'medium',
+  ...props
 }: AvatarProps): JSX.Element {
   const diameter = sizes[size];
 
@@ -35,6 +36,7 @@ export default function Avatar({
         [styles.outline]: outline,
         [styles.border]: border,
       })}
+      {...props}
     >
       <Image src={src} alt="avatar" width={diameter} height={diameter} />
     </div>
