@@ -8,8 +8,8 @@ type CertificationsProps = React.HTMLAttributes<HTMLElement> & {
     title: string;
     date: string;
     image: string;
-    totalOwners: number;
-    connections: string[];
+    totalOwners?: number;
+    connections?: string[];
   }[];
   label?: string;
 };

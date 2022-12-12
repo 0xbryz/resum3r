@@ -6,10 +6,10 @@ import Avatar from '../Avatar/Avatar';
 
 export default function Certification({
   image,
-  connections,
+  connections = [],
   title,
   date,
-  totalOwners,
+  totalOwners = 0,
 }): JSX.Element {
   return (
     <BaseRowCard>
@@ -19,9 +19,11 @@ export default function Certification({
           <h2 className={classnames(styles.title, ['body-bold', 'ellipsis'])}>
             {title}
           </h2>
-          <p className="blue body-reduced">{`${totalOwners} people have this`}</p>
+          {!!totalOwners && (
+            <p className="blue body-reduced">{`${totalOwners} people have this`}</p>
+          )}
           <div className={styles.connections}>
-            {connections &&
+            {!!connections?.length &&
               connections.map((connection) => (
                 <Avatar key={connection} src={image} size="tiny" border />
               ))}

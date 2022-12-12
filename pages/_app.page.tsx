@@ -1,10 +1,13 @@
 import FormProvider from '../context';
+import { NFTProvider } from '../context/useNFTs';
 import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }) {
   return (
     <FormProvider>
-      <Component {...pageProps} />
+      <NFTProvider>
+        <Component {...pageProps} />
+      </NFTProvider>
     </FormProvider>
   );
 }

@@ -1,57 +1,32 @@
-import { useRef } from 'react';
-import { Form } from '@unform/web';
+import { useMemo } from 'react';
 import { useFormData } from '../../context/index';
-import styles from './Questionnaire.module.scss';
-import { certifications } from '../../pages/data';
 import Certifications from '../../components/Certifications/Certifications';
-import { QUESTIONNAIRE_INPUT_DATA } from './Questionnaire.data';
-import Link from 'next/link';
-import Preview from '../../components/Preview/Preview';
+import { BaseNFTPage, NFT_PAGE_CONFIG } from '../../components/NFTTemplate/NFTTemplate';
+import { formatDate } from '../../utils';
 
 export default function Credentials() {
-  const { setFormValues } = useFormData();
-  const formRef = useRef(null);
+  const { touchedData: { credentials } } = useFormData();
 
-  async function handleSubmit(data) {
-    try {
-      formRef.current.setErrors({});
+  const selectedData = useMemo(() => {
+    const selectedNFTs = (credentials?.credentials_nfts || []).map((a) => ({
+      date: formatDate(a.value.timeLastUpdated),
+      image: a.image,
+      title: a.value.title,
+    }));
 
-      setFormValues({ credentials: data });
-    } catch (error) {
-      console.log(error);
-    }
-  }
+    const selectedPoaps = (credentials?.credentials_poaps || []).map((a) => ({
+      date: formatDate(a.value.created),
+      image: a.image,
+      totalOwners: a.value.event.supply,
+      title: a.value.event.name,
+    }));
+
+    return [].concat(selectedNFTs, selectedPoaps);
+  }, [credentials?.credentials_nfts, credentials?.credentials_poaps]);
 
   return (
-    <div className={styles.form}>
-      <div className={styles.left}>
-        <h1 className="headline">Credentials & Certifications</h1>
-        <Form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
-          <div className={styles.container}>
-            {QUESTIONNAIRE_INPUT_DATA.credentials.nfts.map(
-              (question, index) => (
-                <question.Component key={index} {...question.props} />
-              )
-            )}
-            {QUESTIONNAIRE_INPUT_DATA.credentials.poaps.map(
-              (question, index) => (
-                <question.Component key={index} {...question.props} />
-              )
-            )}
-          </div>
-          <Link
-            onClick={() => {
-              handleSubmit(formRef.current.getData());
-            }}
-            href="/create/projects"
-          >
-            Projects
-          </Link>
-        </Form>
-      </div>
-      <Preview>
-        <Certifications data={certifications} style={{ minWidth: '700px' }} />
-      </Preview>
-    </div>
+    <BaseNFTPage page={NFT_PAGE_CONFIG.credentials}>
+      <Certifications data={selectedData} style={{ minWidth: '700px' }} />
+    </BaseNFTPage>
   );
 }

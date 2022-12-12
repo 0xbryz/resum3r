@@ -6,12 +6,14 @@ import Image from 'next/image';
 
 export type CheckboxProps = React.HTMLAttributes<HTMLInputElement> & {
   className?: 'toggle' | 'checkmark' | 'box' | 'circle';
+  checked?: boolean;
   name: string;
   options: {
     id: string;
     value: string;
     label?: string;
     image?: string;
+    checked?: boolean;
   }[];
 };
 
@@ -50,7 +52,7 @@ export default function Checkbox({
         });
       },
     });
-  }, [fieldName, registerField]);
+  }, [fieldName, name, registerField]);
 
   return (
     <div
@@ -64,30 +66,41 @@ export default function Checkbox({
       )}
     >
       {options.map((option, index) => (
-        <div key={option.id} className={styles.wrapper}>
+        <div key={`${option.id}-${name}`} className={styles.wrapper}>
           {option.image ? null : (
             <label className="quote-reduced">{option.label}</label>
           )}
           <div className={classnames(styles.checkbox)}>
             <label htmlFor={option.id}>
               <input
-                defaultChecked={defaultValue.includes(option.id)}
+                defaultChecked={option.checked}
                 ref={(ref) => ref && (inputRefs.current[index] = ref)}
                 value={option.value}
                 type="checkbox"
                 id={option.id}
                 className={styles.input}
-                {...rest}
+                name={name}
+                checked={option.checked}
+                // {...rest}
               />
               <span className={styles.icon}></span>
               {option.image && (
-                <Image
-                  src={option.image}
-                  alt={option.label}
-                  width={size}
-                  height={size}
-                  className={styles.image}
-                />
+                <>
+                  {!!option.image?.match('.mp4') ? (
+                    <video className={styles.image} width="120" height="120" loop autoPlay>
+                      <source src={option.image} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  ) : (
+                    <Image
+                      src={option.image}
+                      alt={option.label}
+                      width={size}
+                      height={size}
+                      className={styles.image}
+                    />
+                  )}
+                </>
               )}
             </label>
           </div>

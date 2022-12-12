@@ -4,7 +4,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { Network, Alchemy } from 'alchemy-sdk';
 
 const settings = {
-  apiKey: process.env.ALCHEMY_API_KEY,
+  apiKey: process.env.ALCHEMY_KEY,
   network: Network.MATIC_MAINNET,
 }
 
@@ -22,7 +22,17 @@ export default async function handler(
   console.log({ address });
 
   try {
-    const nfts = (await alchemy.nft.getNftsForOwner(_address)).ownedNfts.filter((nft) => !nft.contract.address.match(KUDOS_CONTRACT));
+    // sort by kudos first in one method
+    const nfts = (await alchemy.nft.getNftsForOwner(_address)).ownedNfts.sort((a, b) => {
+      if (a.contract.address === KUDOS_CONTRACT) {
+        return -1;
+      } else if (b.contract.address === KUDOS_CONTRACT) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+
     console.log(`Found ${nfts.length} nfts for ${_address}`);
     res.send(nfts);
   } catch (error) {

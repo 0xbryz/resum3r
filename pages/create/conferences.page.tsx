@@ -1,54 +1,33 @@
-import { useRef } from 'react';
-import { Form } from '@unform/web';
+import { useMemo } from 'react';
 import { useFormData } from '../../context/index';
-import styles from './Questionnaire.module.scss';
-import Button from '../../components/Button/Button';
-import { conferences } from '../../pages/data';
 import PillsModule from '../../components/PillsModule/PillsModule';
-import { QUESTIONNAIRE_INPUT_DATA } from './Questionnaire.data';
-import Preview from '../../components/Preview/Preview';
+import { BaseNFTPage, NFT_PAGE_CONFIG } from '../../components/NFTTemplate/NFTTemplate';
 
 export default function Conferences() {
-  const { setFormValues } = useFormData();
-  const formRef = useRef(null);
+  const { touchedData: { conferences} } = useFormData();
 
-  async function handleSubmit(data) {
-    try {
-      formRef.current.setErrors({});
+  const selectedData = useMemo(() => {
+    const selectedNFTs = (conferences?.conferences_nfts || []).map((a) => ({
+      image: a.image,
+      title: a.value.title,
+    }));
 
-      setFormValues({ conferences: data });
-    } catch (error) {
-      console.log(error);
-    }
-  }
+    const selectedPoaps = (conferences?.conferences_poaps || []).map((a) => ({
+      count: a.value.event.supply,
+      image: a.image,
+      title: a.value.event.name,
+    }));
+
+    return [].concat(selectedNFTs, selectedPoaps);
+  }, [conferences?.conferences_nfts, conferences?.conferences_poaps]);
 
   return (
-    <div className={styles.form}>
-      <div className={styles.left}>
-        <h1 className="headline">Conferences & Events</h1>
-        <Form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
-          <div className={styles.container}>
-            {QUESTIONNAIRE_INPUT_DATA.conferences.nfts.map(
-              (question, index) => (
-                <question.Component key={index} {...question.props} />
-              )
-            )}
-            {QUESTIONNAIRE_INPUT_DATA.conferences.poaps.map(
-              (question, index) => (
-                <question.Component key={index} {...question.props} />
-              )
-            )}
-          </div>
-          <Button>Submit</Button>
-        </Form>
-      </div>
-      <Preview>
-        <PillsModule
-          data={conferences}
-          label="Conferences & Events"
-          style={{ maxWidth: '388px' }}
-        />
-      </Preview>
-    </div>
-  );
+    <BaseNFTPage page={NFT_PAGE_CONFIG.conferences}>
+      <PillsModule
+        data={selectedData}
+        label="Conferences & Events"
+        style={{ maxWidth: '388px' }}
+      />
+    </BaseNFTPage>
+  )
 }

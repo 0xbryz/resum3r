@@ -4,7 +4,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { Network, Alchemy } from 'alchemy-sdk';
 
 const settings = {
-  apiKey: process.env.ALCHEMY_API_KEY,
+  apiKey: process.env.ALCHEMY_KEY,
   network: Network.MATIC_MAINNET,
 }
 

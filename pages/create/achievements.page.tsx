@@ -1,57 +1,22 @@
-import { useRef } from 'react';
-import { Form } from '@unform/web';
+import { useCallback, useMemo, useRef } from 'react';
 import { useFormData } from '../../context/index';
-import styles from './Questionnaire.module.scss';
-import { achievements } from '../../pages/data';
 import AchievementsCard from '../../components/AchievementsCard/Achievements';
-import { QUESTIONNAIRE_INPUT_DATA } from './Questionnaire.data';
-import Link from 'next/link';
-import Preview from '../../components/Preview/Preview';
+import { BaseNFTPage, NFT_PAGE_CONFIG } from '../../components/NFTTemplate/NFTTemplate';
 
 export default function Achievements() {
-  const { setFormValues } = useFormData();
-  const formRef = useRef(null);
+  const { touchedData: { achievements} } = useFormData();
 
-  async function handleSubmit(data) {
-    try {
-      formRef.current.setErrors({});
-
-      setFormValues({ achievements: data });
-    } catch (error) {
-      console.log(error);
+  // selected data combines touchedData and and filters out duplicates
+  const selectedData = useMemo(() => {
+    return {
+      poaps: achievements?.achievements_poaps,
+      nfts: achievements?.achievements_nfts,
     }
-  }
+  }, [achievements?.achievements_nfts, achievements?.achievements_poaps]);
 
   return (
-    <div className={styles.form}>
-      <div className={styles.left}>
-        <h1 className="headline">Achievements</h1>
-        <Form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
-          <div className={styles.container}>
-            {QUESTIONNAIRE_INPUT_DATA.achievements.nfts.map(
-              (question, index) => (
-                <question.Component key={index} {...question.props} />
-              )
-            )}
-            {QUESTIONNAIRE_INPUT_DATA.achievements.poaps.map(
-              (question, index) => (
-                <question.Component key={index} {...question.props} />
-              )
-            )}
-          </div>
-          <Link
-            onClick={() => {
-              handleSubmit(formRef.current.getData());
-            }}
-            href="/create/credentials"
-          >
-            Next: Credentials & Certifications
-          </Link>
-        </Form>
-      </div>
-      <Preview>
-        <AchievementsCard data={achievements} style={{ maxWidth: '700px' }} />
-      </Preview>
-    </div>
-  );
+    <BaseNFTPage page={NFT_PAGE_CONFIG.achievements}>
+      <AchievementsCard data={selectedData} style={{ maxWidth: '700px' }} />
+    </BaseNFTPage>
+  )
 }

@@ -3,12 +3,13 @@ import classnames from 'classnames';
 import styles from './Polaroid.module.scss';
 import Image from 'next/image';
 import Avatar from '../Avatar/Avatar';
+import { Kudos } from '../../context/useNFTs';
+import { formatDate } from '../../utils';
 
 type PolaroidProps = React.HTMLAttributes<HTMLElement> & {
-  title: string;
-  avatar?: string;
-  date?: string;
-  nft: string;
+  id: string;
+  image: string;
+  value: Kudos;
 };
 
 type EllipsisCSSProperties = React.CSSProperties & {
@@ -16,20 +17,22 @@ type EllipsisCSSProperties = React.CSSProperties & {
 };
 
 export default function Polaroid({
-  title,
-  avatar,
-  date,
-  nft,
+  id,
+  image,
+  value,
 }: PolaroidProps): JSX.Element {
   const linesClamp: EllipsisCSSProperties = {
     '--ellipsis-line-clamp': 2,
   };
 
+  const { timeLastUpdated, title } = value || {};
+  const date = formatDate(timeLastUpdated)
+
   return (
     <div className={styles.polaroid}>
       <div
         style={{
-          backgroundImage: `url('${nft}')`,
+          backgroundImage: `url('${image}')`,
         }}
         className={styles.thumbnail}
       ></div>
@@ -38,7 +41,7 @@ export default function Polaroid({
           <h2 style={linesClamp} className={classnames(['label', 'ellipsis'])}>
             {title}
           </h2>
-          {avatar && <Avatar src={avatar} size="tiny" />}
+          {/* {avatar && <Avatar src={image} size="tiny" />} */}
         </div>
         <p className={classnames(styles.date, ['caption'])}>{date}</p>
       </div>

@@ -1,61 +1,33 @@
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import { Form } from '@unform/web';
 import { useFormData } from '../../context/index';
 import styles from './Questionnaire.module.scss';
-import { communities } from '../../pages/data';
+import { communities as x } from '../../pages/data';
 import PillsModule from '../../components/PillsModule/PillsModule';
 import { QUESTIONNAIRE_INPUT_DATA } from './Questionnaire.data';
 import Link from 'next/link';
 import Preview from '../../components/Preview/Preview';
+import { BaseNFTPage, NFT_PAGE_CONFIG } from '../../components/NFTTemplate/NFTTemplate';
 
 export default function Communities() {
-  const { setFormValues } = useFormData();
-  const formRef = useRef(null);
+  const { touchedData: { communities} } = useFormData();
 
-  async function handleSubmit(data) {
-    try {
-      formRef.current.setErrors({});
+  const selectedData = useMemo(() => {
+    const selectedNFTs = (communities?.communities_nfts || []).map((a) => ({
+      image: a.image,
+      title: a.value.title,
+    }));
 
-      setFormValues({ communities: data });
-    } catch (error) {
-      console.log(error);
-    }
-  }
+    return [].concat(selectedNFTs);
+  }, [communities?.communities_nfts]);
 
   return (
-    <div className={styles.form}>
-      <div className={styles.left}>
-        <h1 className="headline">Communities & DAOs</h1>
-        <Form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
-          <div className={styles.container}>
-            {QUESTIONNAIRE_INPUT_DATA.communities.nfts.map(
-              (question, index) => (
-                <question.Component key={index} {...question.props} />
-              )
-            )}
-            {QUESTIONNAIRE_INPUT_DATA.communities.poaps.map(
-              (question, index) => (
-                <question.Component key={index} {...question.props} />
-              )
-            )}
-          </div>
-          <Link
-            onClick={() => {
-              handleSubmit(formRef.current.getData());
-            }}
-            href="/create/conferences"
-          >
-            Next: Conferences & Events
-          </Link>
-        </Form>
-      </div>
-      <Preview>
-        <PillsModule
-          data={communities}
-          label="Communities & DAOs"
-          style={{ maxWidth: '388px' }}
-        />
-      </Preview>
-    </div>
-  );
+    <BaseNFTPage page={NFT_PAGE_CONFIG.communities}>
+      <PillsModule
+        data={selectedData}
+        label="Communities & DAOs"
+        style={{ maxWidth: '388px' }}
+      />
+    </BaseNFTPage>
+  )
 }

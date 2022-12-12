@@ -10,12 +10,12 @@ export default function Achievements({ data, ...props }): JSX.Element {
     <BaseCard label="Achievements" divider {...props}>
       <div className={styles.achievements}>
         <div className={styles.nftsection}>
-          {data.nfts.map((achievement, i) => (
+          {data.nfts?.map((achievement, i) => (
             <Polaroid key={i} {...achievement} />
           ))}
         </div>
         <div className={styles.poapsection}>
-          {data.poaps.map((achievement, i) => (
+          {data.poaps?.map((achievement, i) => (
             <POAPCard key={i} {...achievement} />
           ))}
         </div>

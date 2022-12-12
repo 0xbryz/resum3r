@@ -9,12 +9,16 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
   },
   images: {
-    domains: ['pbs.twimg.com', 'img.freepik.com'],
+    domains: ['pbs.twimg.com', 'img.freepik.com', 'assets.poap.xyz', 's3.us-east-2.amazonaws.com', 'www.poap.xyz', '**.s3-us-west-2.amazonaws.com', 'images.mintkudos.xyz'],
     remotePatterns: [
       {
         protocol: 'ipfs',
         hostname: '**',
-        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.amazonaws.com',
+        // pathname: '**.s3-us-west-2.amazonaws.com',
       },
     ],
   },
