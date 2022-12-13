@@ -7,6 +7,7 @@ import Certifications from '../../components/Certifications/Certifications';
 import { QUESTIONNAIRE_INPUT_DATA } from './Questionnaire.data';
 import Link from 'next/link';
 import Preview from '../../components/Preview/Preview';
+import Button from '../../components/Button/Button';
 
 export default function Credentials() {
   const { setFormValues } = useFormData();
@@ -39,14 +40,16 @@ export default function Credentials() {
               )
             )}
           </div>
-          <Link
-            onClick={() => {
-              handleSubmit(formRef.current.getData());
-            }}
-            href="/create/projects"
-          >
-            Projects
-          </Link>
+          <Button style="primary">
+            <Link
+              onClick={() => {
+                handleSubmit(formRef.current.getData());
+              }}
+              href="/create/projects"
+            >
+              Projects
+            </Link>
+          </Button>
         </Form>
       </div>
       <Preview>

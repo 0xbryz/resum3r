@@ -46,7 +46,7 @@ export default function Select({
         ref={selectRef}
         defaultValue={defaultValue}
         {...rest}
-        placeholder="Type or select an option"
+        placeholder="Select an option"
         className="quote"
         theme={selectTheme}
       />

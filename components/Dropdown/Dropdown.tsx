@@ -3,12 +3,23 @@ import React, { cloneElement, useState } from 'react';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
 import styles from './Dropdown.module.scss';
 
+type DropdownProps = React.HtmlHTMLAttributes<HTMLDivElement> & {
+  trigger: React.ReactElement;
+  menu: React.ReactElement[];
+  hasTriggerHover?: boolean;
+  position?: 'left' | 'right';
+};
+
 type DropdownItemProps = React.HtmlHTMLAttributes<HTMLDivElement> & {
   children: React.ReactNode;
   handleOnClick?: () => void;
   hover?: boolean;
   clickable?: boolean;
 };
+
+export function GhostDropdownItem() {
+  return <div className={styles.ghostDropdownItem}></div>;
+}
 
 export function DropdownItem({
   children,
@@ -32,7 +43,13 @@ export function DropdownItem({
   );
 }
 
-export function Dropdown({ trigger, menu, ...props }) {
+export function Dropdown({
+  trigger,
+  hasTriggerHover = true,
+  menu,
+  position = 'right',
+  ...props
+}: DropdownProps): JSX.Element {
   const [open, setOpen] = useState(false);
   const [count, setCount] = useState(false);
 
@@ -57,13 +74,19 @@ export function Dropdown({ trigger, menu, ...props }) {
       {cloneElement(trigger, {
         onClick: handleOpen,
         ref: ref,
-        className: classnames(styles.trigger, {
+        className: classnames({
+          [styles.trigger]: hasTriggerHover,
           [styles.open]: open,
         }),
       })}
       {open ? (
         count ? (
-          <ul className={styles.menu}>
+          <ul
+            className={classnames(styles.menu, {
+              [styles.left]: position === 'left',
+              [styles.right]: position === 'right',
+            })}
+          >
             {menu.map((menuItem, index) => (
               <li key={index} className={styles.menuItem}>
                 {cloneElement(menuItem, {

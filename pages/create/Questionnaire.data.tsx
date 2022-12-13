@@ -5,6 +5,7 @@ import Select from '../../components/Form/Select/Select';
 import SelectImages from '../../components/Form/SelectImages/SelectImages';
 import TextArea from '../../components/Form/TextArea/TextArea';
 import TextField from '../../components/Form/TextField/TextField';
+import { countries } from '../countries';
 
 type InputData = {
   Component: React.FC;
@@ -109,10 +110,11 @@ export const QUESTIONNAIRE_INPUT_DATA: QuestionnaireInputDataProps = {
       },
     },
     {
-      Component: TextField,
+      Component: Select,
       props: {
         name: 'nationality',
         label: 'Where are you from?',
+        options: countries,
       },
     },
     {
@@ -141,13 +143,6 @@ export const QUESTIONNAIRE_INPUT_DATA: QuestionnaireInputDataProps = {
       props: {
         name: 'discord',
         label: 'Discord handle',
-      },
-    },
-    {
-      Component: TextField,
-      props: {
-        name: 'twitter',
-        label: 'Twitter handle',
       },
     },
     {

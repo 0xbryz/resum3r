@@ -7,7 +7,15 @@
   display: flex;
   align-self: center;
   justify-content: space-between;
-  padding: $spacing-sixteen;
+  padding: $spacing-eight $spacing-sixteen;
+  position: fixed;
+  top: 0;
+  width: calc(100% - $spacing-thirty-two);
+  z-index: 1;
+}
+
+.logoHidden {
+  justify-content: flex-end;
 }
 
 .lens {

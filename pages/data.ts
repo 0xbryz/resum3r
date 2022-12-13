@@ -1,11 +1,17 @@
 export const bio = [
   {
+    id: '0x2687',
     address: '0x2687...f8d8',
     firstName: 'Narayane',
     lastName: 'Ribeiro Medeiros',
     pronouns: 'She/Her',
     title: 'Software Engineer',
-    nationality: 'Brazil',
+    nationality: [
+      {
+        label: 'Mexico',
+        value: 'MX',
+      },
+    ],
     availableForHire: true,
     description:
       'I make UI/UX designs for web and mobile apps. I am also skilled in HTML banners (motion), gifs, graphic visuals for websites and google ads. I have experience in social media and digital art.',

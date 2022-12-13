@@ -7,6 +7,7 @@ import AchievementsCard from '../../components/AchievementsCard/Achievements';
 import { QUESTIONNAIRE_INPUT_DATA } from './Questionnaire.data';
 import Link from 'next/link';
 import Preview from '../../components/Preview/Preview';
+import Button from '../../components/Button/Button';
 
 export default function Achievements() {
   const { setFormValues } = useFormData();
@@ -39,14 +40,16 @@ export default function Achievements() {
               )
             )}
           </div>
-          <Link
-            onClick={() => {
-              handleSubmit(formRef.current.getData());
-            }}
-            href="/create/credentials"
-          >
-            Next: Credentials & Certifications
-          </Link>
+          <Button style="primary">
+            <Link
+              onClick={() => {
+                handleSubmit(formRef.current.getData());
+              }}
+              href="/create/credentials"
+            >
+              Next: Credentials & Certifications
+            </Link>
+          </Button>
         </Form>
       </div>
       <Preview>

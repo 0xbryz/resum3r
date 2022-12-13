@@ -7,6 +7,7 @@ import SkillsCard from '../../components/SkillsCard/SkillsCard';
 import { QUESTIONNAIRE_INPUT_DATA } from './Questionnaire.data';
 import Link from 'next/link';
 import Preview from '../../components/Preview/Preview';
+import Button from '../../components/Button/Button';
 
 export default function Skills() {
   const { setFormValues } = useFormData();
@@ -32,14 +33,16 @@ export default function Skills() {
               <question.Component key={index} {...question.props} />
             ))}
           </div>
-          <Link
-            onClick={() => {
-              handleSubmit(formRef.current.getData());
-            }}
-            href="/create/achievements"
-          >
-            Next: Achievements
-          </Link>
+          <Button style="primary">
+            <Link
+              onClick={() => {
+                handleSubmit(formRef.current.getData());
+              }}
+              href="/create/achievements"
+            >
+              Next: Achievements
+            </Link>
+          </Button>
         </Form>
       </div>
       <Preview>

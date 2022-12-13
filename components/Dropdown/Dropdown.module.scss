@@ -16,6 +16,7 @@
   align-items: center;
   padding: $spacing-four;
   gap: $spacing-two;
+  color: $imperialprimer;
 }
 
 .trigger {
@@ -49,6 +50,14 @@
   z-index: 2;
 }
 
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
 .menu > li {
   margin: 0;
   border-radius: $spacing-two;
@@ -67,4 +76,8 @@
 
 .clickable {
   cursor: pointer;
+}
+
+.ghostDropdownItem {
+  display: none;
 }

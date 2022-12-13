@@ -7,6 +7,7 @@ import HeroCardsModule from '../../components/HeroCardsModule/HeroCardsModule';
 import { QUESTIONNAIRE_INPUT_DATA } from './Questionnaire.data';
 import Link from 'next/link';
 import Preview from '../../components/Preview/Preview';
+import Button from '../../components/Button/Button';
 
 export default function Projects() {
   const { setFormValues } = useFormData();
@@ -35,14 +36,16 @@ export default function Projects() {
               <question.Component key={index} {...question.props} />
             ))}
           </div>
-          <Link
-            onClick={() => {
-              handleSubmit(formRef.current.getData());
-            }}
-            href="/create/communities"
-          >
-            Next: Communities & DAOs
-          </Link>
+          <Button style="primary">
+            <Link
+              onClick={() => {
+                handleSubmit(formRef.current.getData());
+              }}
+              href="/create/communities"
+            >
+              Next: Communities & DAOs
+            </Link>
+          </Button>
         </Form>
       </div>
       <Preview>

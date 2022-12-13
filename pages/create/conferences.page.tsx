@@ -39,7 +39,7 @@ export default function Conferences() {
               )
             )}
           </div>
-          <Button>Submit</Button>
+          <Button style="primary">Submit</Button>
         </Form>
       </div>
       <Preview>

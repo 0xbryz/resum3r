@@ -52,6 +52,18 @@ export default function LensProvider({ children }) {
   const [token, setToken] = useState('');
   const [localToken, setlocalToken] = useState('');
   const [profile, setProfile] = useState();
+  const [personalDetails, setPersonalDetails] = useState([
+    {
+      address: address,
+      firstName: '',
+      lastName: '',
+      pronouns: '',
+      title: '',
+      nationality: [],
+      availableForHire: false,
+      description: '',
+    },
+  ]);
   const [publications, setPublications] = useState([]);
 
   const router = useRouter();
@@ -78,6 +90,17 @@ export default function LensProvider({ children }) {
         }
       }
       setProfile(profileData);
+
+      const newObj = Object.assign(
+        {},
+        {
+          address: address,
+          firstName: profileData.name,
+          description: profileData.bio,
+        }
+      );
+      setPersonalDetails([newObj as any]);
+
       /* fetch the user's publications */
       const pubs = await client.query({
         query: getPublications,
@@ -90,7 +113,7 @@ export default function LensProvider({ children }) {
     } catch (err) {
       console.log('error fetching profile...', err);
     }
-  }, [handle]);
+  }, [address, handle]);
 
   const checkConnection = useCallback(async () => {
     if (address) {
@@ -186,6 +209,7 @@ export default function LensProvider({ children }) {
         handle,
         profile,
         publications,
+        personalDetails,
       }}
     >
       {children}
